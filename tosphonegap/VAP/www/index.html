@@ -9,23 +9,57 @@
 </head> 
 <body> 
 
-<div id="Teams" data-role="page">
+<div id="main" data-role="page">
 
 	<div data-role="header" data-id="nav" data-position="fixed">
 		<h1>Town Of Salem</h1>
 		<div data-role="navbar">
 			<ul>
-				<li><a href="#venue" data-icon="info" data-transition="fade" class="ui-button-active ui-state-persist">Teams</a></li>
-				<li><a href="#request" data-icon="plus" data-transition="slide">Game Modes</a></li>
-				<li><a href="#merch" data-icon="star" data-transition="slide">Guides</a></li>
+				<li><a href="#main" data-icon="info" data-transition="fade" class="ui-button-active ui-state-persist">Teams</a></li>
+				<li><a href="#gamemode" data-icon="plus" data-transition="slide">Game Modes</a></li>
+				<li><a href="#guides" data-icon="star" data-transition="slide">Guides</a></li>
 			</ul>
 		</div>
 	</div><!-- /header -->
+	<div data-role="content">
 
-	<div data-role="content">	
-		<h2>Town</h2><br />
+	<div align="center"><img src="img/logo.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="550px" width="750px"/></div>
+	<h2>Town</h2><br />
 
-	Bodyguard| Town Protective|	Sacrifice yourself to protect one person from death at night, killing their attacker and yourself. <br />
+	<button onclick="javascript:window.location.href='guides.html'">Bodyguard</button>
+
+	<button>Doctor</button>
+
+	<button>Escort</button>
+
+	<button>Investigator</button>
+
+	<button>Jailor</button>
+	
+	<button>Lookout</button>	
+
+	<button>Mayor</button>
+
+	<button>Medium</button>
+
+	<button>Retributionist</button>
+
+	<button>Sheriff</button>
+
+	<button>Spy</button>
+
+	<button>Transporter</button>
+
+	<button>Vampire Hunter</button>
+
+	<button>Veteran</button>
+
+	<button>Vigilante</button>
+
+	<br/>
+	
+	Bodyguard| Town Protective|	Sacrifice yourself to protect one person from death at night, killing their attacker and yourself. 
+	<br />
 
 	Doctor|	Town Protective|	Heal one person each night, preventing them from dying.<br />
 
@@ -101,46 +135,42 @@
 
 </div><!-- /page -->
 
-<div id="request" data-role="page">
-
-	<div data-role="header" data-id="nav" data-position="fixed">
-		<h1>Town Of Salem</h1>
-		<div data-role="navbar">
-			<ul>
-				<li><a href="#venue" data-icon="info" data-transition="fade">Teams</a></li>
-				<li><a href="#request" data-icon="plus" data-transition="slide" class="ui-button-active ui-state-persist">Game Modes</a></li>
-				<li><a href="#merch" data-icon="star" data-transition="slide">Guides</a></li>
-			</ul>
-		</div>
-	</div><!-- /header -->
-
-	<div data-role="content">	
-		<h4>Request a Song</h4>
-		<form>
-			<div data-role="fieldcontain">
-				<label for="name">Your Name</label>
-				<input type="text" id="name"/>
-			</div>
-			<div data-role="fieldcontain">				
-				<label for="title">Song Title</label>
-				<input type="text" id="title"/>
-			</div>
-			<button type="submit">Request It!</button>
-		</form>
-	</div><!-- /content -->
-
-</div><!-- /page -->
-
-<div id="merch" data-role="page">
+<div id="gamemode" data-role="page">
 
 	<div data-role="header" data-id="venue" data-position="fixed">
 		<h1>Town Of Salem</h1>
 		
 		<div data-role="navbar">
 			<ul>
-				<li><a href="#venue" data-icon="info" data-transition="fade">Teams</a></li>
-				<li><a href="#request" data-icon="plus" data-transition="slide">Game Modes</a></li>
-				<li><a href="#merch" data-icon="star" data-transition="slide" class="ui-button-active ui-state-persist">Guides</a></li>
+				<li><a href="#main" data-icon="info" data-transition="fade">Teams</a></li>
+				<li><a href="#gamemode" data-icon="plus" data-transition="slide" class="ui-button-active ui-state-persist">Game Modes</a></li>
+				<li><a href="#guides" data-icon="star" data-transition="slide">Guides</a></li>
+			</ul>
+		</div>
+	</div><!-- /header -->
+		<h2>Classic</h2>
+		<h2>Raked Practice</h2>
+		<h2>Ranked</h2>
+		<h2>Custom</h2>
+		<h2>Rapid</h2>
+		<h2>All Any</h2>
+		<h2>Rainbow</h2>
+		<h2>Vigilantics</h2>
+	<div data-role="content">
+
+	</div><!-- /content -->
+</div><!-- /page -->
+
+<div id="guides" data-role="page">
+
+	<div data-role="header" data-id="venue" data-position="fixed">
+		<h1>Town Of Salem</h1>
+		
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#main" data-icon="info" data-transition="fade">Teams</a></li>
+				<li><a href="#gamemode" data-icon="plus" data-transition="slide">Game Modes</a></li>
+				<li><a href="#guides" data-icon="star" data-transition="slide" class="ui-button-active ui-state-persist">Guides</a></li>
 			</ul>
 		</div>
 	</div><!-- /header -->
