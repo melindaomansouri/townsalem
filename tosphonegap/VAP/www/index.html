@@ -6,6 +6,27 @@
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+
+
+	<script type="text/javascript">
+	$( document ).on( "pageinit", "#main", function( event ) {
+		$(".roles-render-button").on("click",function(){
+			var crole = $(this).attr("data-crole");
+
+			$(".role-slidebox").each(function() {
+				$(this).hide();
+			});
+
+			$(crole).show();
+			//var buttonName = $(this).html();
+
+			/*//alert(buttonName+": "+ $("#"+crole).html());
+			//$.mobile.changePage($(crole), {transition: 'pop', role: 'dialog'});  
+			$(crole).dialog();
+			//$(crole).popup('open');*/
+		});
+	});
+	</script>
 </head> 
 <body> 
 
@@ -21,74 +42,86 @@
 			</ul>
 		</div>
 	</div><!-- /header -->
-	<div data-role="content">
 
+	<div data-role="content">
 	<div align="center"><img src="img/logo.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="550px" width="750px"/></div>
+
 	<h2>Town</h2><br />
 
-	<button onclick="javascript:window.location.href='guides.html'">Bodyguard</button>
+	<button class="roles-render-button" data-crole="#rb_bodyguard">Bodyguard</button>
+	<div class="role-slidebox" id="rb_bodyguard" style="display:none;">
+		Town Protective | Sacrifice yourself to protect one person from death at night, killing their attacker and yourself.
+	</div> 
 
-	<button>Doctor</button>
+	<button class="roles-render-button" data-crole="#rb_doctor">Doctor</button>
+	<div class="role-slidebox" id="rb_doctor" style="display:none;">
+		Town Protective|	Heal one person each night, preventing them from dying.
+	</div> 
 
-	<button>Escort</button>
+	<button class="roles-render-button" data-crole="#rb_escort">Escort</button>
+	<div class="role-slidebox" id="rb_escort" style="display:none;">
+		Town Support|	Distract someone each night. Certain roles are immune to roleblocking such as other Escorts/Consorts, Transporters, Witches, Serial killers, and Werewolves on full moon nights.
+	</div>
 
-	<button>Investigator</button>
+	<button class="roles-render-button" data-crole="#rb_investigator">Investigator</button>
+	<div class="role-slidebox" id="rb_investigator" style="display:none;">
+		Town Investigative	Investigate someone for a clue to their role.
+	</div>
 
-	<button>Jailor</button>
-	
-	<button>Lookout</button>	
+	<button class="roles-render-button" data-crole="#rb_jailor">Jailor</button>
+	<div class="role-slidebox" id="rb_jailor" style="display:none;">
+		Town Killing|	Choose someone each day to jail for the night. You may talk to them and choose to execute them.
+	</div>
 
-	<button>Mayor</button>
+	<button class="roles-render-button" data-crole="#rb_lookout">Lookout</button>	
+	<div class="role-slidebox" id="rb_lookout" style="display:none;">
+		Town Investigative|	Watch someone at night to see who visits them.
+	</div>
 
-	<button>Medium</button>
+	<button class="roles-render-button" data-crole="#rb_mayor">Mayor</button>
+	<div class="role-slidebox" id="rb_mayor" style="display:none;">
+		Town Support|	Gain 3 votes when revealing as Mayor.
+	</div>
 
-	<button>Retributionist</button>
+	<button class="roles-render-button" data-crole="#rb_medium">Medium</button>
+	<div class="role-slidebox" id="rb_medium" style="display:none;">
+		Town Support|	Speak with the dead at night. Seance a live player once. You may only seance when you are dead.
+	</div>
 
-	<button>Sheriff</button>
+	<button class="roles-render-button" data-crole="#rb_retributionist">Retributionist</button>
+	<div class="role-slidebox" id="rb_retributionist" style="display:none;">
+		Town Support|	Resurrect a Town member from the dead.
+	</div>
 
-	<button>Spy</button>
+	<button class="roles-render-button" data-crole="#rb_sheriff">Sheriff</button>
+	<div class="role-slidebox" id="rb_sheriff" style="display:none;">
+		Town Investigative|	Check one person each night for suspicious activity.
+	</div>
 
-	<button>Transporter</button>
+	<button class="roles-render-button" data-crole="#rb_spy">Spy</button>
+	<div class="role-slidebox" id="rb_spy" style="display:none;">
+		Town Investigative|	Able to read mafia chat and view who they visit. You may also listen to everyone's whispers.
+	</div>
 
-	<button>Vampire Hunter</button>
+	<button class="roles-render-button" data-crole="#rb_transporter">Transporter</button>
+	<div class="role-slidebox" id="rb_transporter" style="display:none;">
+		Town Investigative|	Able to read mafia chat and view who they visit. You may also listen to everyone's whispers.
+	</div>
 
-	<button>Veteran</button>
+	<button class="roles-render-button" data-crole="#rb_vampire_hunter">Vampire Hunter</button>
+	<div class="role-slidebox" id="rb_vampire_hunter" style="display:none;">
+		Town Killing|	Check for Vampires each night.
+	</div>
 
-	<button>Vigilante</button>
+	<button class="roles-render-button" data-crole="#rb_veteran">Veteran</button>
+	<div class="role-slidebox" id="rb_veteran" style="display:none;">
+		Town Killing|	Decide whether or not to be alert during the night, killing all your visitors.
+	</div>
 
-	<br/>
-	
-	Bodyguard| Town Protective|	Sacrifice yourself to protect one person from death at night, killing their attacker and yourself. 
-	<br />
-
-	Doctor|	Town Protective|	Heal one person each night, preventing them from dying.<br />
-
-	Escort|	Town Support|	Distract someone each night. Certain roles are immune to roleblocking such as other Escorts/Consorts, Transporters, Witches, Serial killers, and Werewolves on full moon nights.<br />
-
-	Investigator|	Town Investigative	Investigate someone for a clue to their role.<br />
-
-	Jailor	Town Killing|	Choose someone each day to jail for the night. You may talk to them and choose to execute them.<br />
-
-	Lookout	Town Investigative|	Watch someone at night to see who visits them.<br />
-
-	Mayor|	Town Support|	Gain 3 votes when revealing as Mayor.<br />
-
-	Medium|	Town Support|	Speak with the dead at night. Seance a live player once. You may only seance when you are dead.<br />
-
-	Retributionist|	Town Support|	Resurrect a Town member from the dead.<br />
-
-	Sheriff|	Town Investigative|	Check one person each night for suspicious activity.<br />
-
-	Spy|	Town Investigative|	Able to read mafia chat and view who they visit. You may also listen to everyone's whispers.<br />
-
-	Transporter|	Town Support|	Choose two people to switch places with each other at night.<br />
-
-	Vampire Hunter|	Town Killing|	Check for Vampires each night.<br />
-
-	Veteran|	Town Killing|	Decide whether or not to be alert during the night, killing all your visitors.<br />
-
-	Vigilante|	Town Killing|	Choose to take justice in your own hands and shoot someone. If you shoot a town, you will commit suicide.<br />
-
+	<button class="roles-render-button" data-crole="#rb_vigilante">Vigilante</button>
+	<div class="role-slidebox" id="rb_vigilante" style="display:none;">
+		Town Killing|	Choose to take justice in your own hands and shoot someone. If you shoot a town, you will commit suicide.
+	</div>
 
 <h2>Mafia</h2><br />
 
