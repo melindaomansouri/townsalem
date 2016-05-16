@@ -31,12 +31,31 @@
 		});
 	});
 	</script>
+	
+	<style type="text/css">
+		.fancy-header {
+			background: gold;
+			background: -webkit-linear-gradient(rgba(255, 188, 38, 0.86), black);
+			background: -o-linear-gradient(rgba(255, 188, 38, 0.86), black);
+			background: -moz-linear-gradient(rgba(255, 188, 38, 0.86), black);
+			background: linear-gradient(rgba(255, 188, 38, 0.86), black);
+		}
+		
+		.ui-btn:hover {
+			background: gold;
+			background: -webkit-linear-gradient(gold, rgba(119, 82, 0, 0.86));
+			background: -o-linear-gradient(gold, rgba(119, 82, 0, 0.86));
+			background: -moz-linear-gradient(gold, rgba(119, 82, 0, 0.86));
+			background: linear-gradient(gold, rgba(119, 82, 0, 0.86));
+			color:white;
+		}
+	</style>
 </head> 
 <body> 
 
 <div id="main" data-role="page">
 
-	<div data-role="header" data-id="nav" data-position="fixed">
+	<div class="fancy-header" data-role="header" data-id="nav" data-position="fixed">
 		<h1>Town Of Salem</h1>
 		<div data-role="navbar">
 			<ul>
@@ -242,7 +261,7 @@
 
 <div id="gamemode" data-role="page">
 
-	<div data-role="header" data-id="venue" data-position="fixed">
+	<div class="fancy-header" data-role="header" data-id="venue" data-position="fixed">
 		<h1>Town Of Salem</h1>
 		
 		<div data-role="navbar">
@@ -304,7 +323,7 @@
 
 <div id="guides" data-role="page">
 
-	<div data-role="header" data-id="venue" data-position="fixed">
+	<div class="fancy-header" data-role="header" data-id="venue" data-position="fixed">
 		<h1>Town Of Salem</h1>
 		
 		<div data-role="navbar">
