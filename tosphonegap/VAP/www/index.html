@@ -15,14 +15,23 @@
 		});
 
 		$(".roles-render-button").on("click",function(){
+
 			var crole = $(this).attr("data-crole");
 
+
 			$(".role-slidebox").each(function() {
-				$(this).hide();
+				if($(this).attr("id") == crole) {
+					$(this).hide();
+				}
 			});
 
-			$(crole).show();
 			//var buttonName = $(this).html();
+
+			if($(crole).is(':visible')) {
+				$(crole).hide();
+			} else {
+				$(crole).show();
+			}
 
 			/*//alert(buttonName+": "+ $("#"+crole).html());
 			//$.mobile.changePage($(crole), {transition: 'pop', role: 'dialog'});  
