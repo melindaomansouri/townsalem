@@ -15,14 +15,24 @@
 		});
 
 		$(".roles-render-button").on("click",function(){
+
 			var crole = $(this).attr("data-crole");
+			var croleIDplain = crole.replace("#","");
+
 
 			$(".role-slidebox").each(function() {
-				$(this).hide();
+				if($(this).attr("id") != croleIDplain) {
+					$(this).hide();
+				}
 			});
 
-			$(crole).show();
 			//var buttonName = $(this).html();
+
+			if($(crole).is(':visible')) {
+				$(crole).hide();
+			} else {
+				$(crole).show();
+			}
 
 			/*//alert(buttonName+": "+ $("#"+crole).html());
 			//$.mobile.changePage($(crole), {transition: 'pop', role: 'dialog'});  
@@ -31,12 +41,52 @@
 		});
 	});
 	</script>
+	
+	<style type="text/css">
+
+		h1,h2,h3,h4,h5,.role-slidebox {
+			color:white;
+		}
+
+		.fancy-header {
+			background: gold;
+			background: -webkit-linear-gradient(rgba(255, 188, 38, 0.86), rgba(171, 118, 0, 0.86));
+			background: -o-linear-gradient(rgba(255, 188, 38, 0.86), rgba(171, 118, 0, 0.86));
+			background: -moz-linear-gradient(rgba(255, 188, 38, 0.86), rgba(171, 118, 0, 0.86));
+			background: linear-gradient(rgba(255, 188, 38, 0.86), rgba(171, 118, 0, 0.86));
+		}
+
+		.ui-btn{
+			background: gold;
+			background: -webkit-linear-gradient(#9C9C9C, #292929);
+			background: -o-linear-gradient(#9C9C9C, #292929);
+			background: -moz-linear-gradient(#9C9C9C, #292929);
+			background: linear-gradient(#9C9C9C, #292929);
+			color:white;
+		}
+
+		
+		.ui-btn:hover {
+			background: gold;
+			background: -webkit-linear-gradient(rgba(255, 188, 38, 0.86), rgba(171, 118, 0, 0.86));
+			background: -o-linear-gradient(rgba(255, 188, 38, 0.86), rgba(171, 118, 0, 0.86));
+			background: -moz-linear-gradient(rgba(255, 188, 38, 0.86), rgba(171, 118, 0, 0.86));
+			background: linear-gradient(rgba(255, 188, 38, 0.86), rgba(171, 118, 0, 0.86));
+			color:white;
+		}
+
+		#main {
+			background-image: url(img/tosbackground.jpg);
+			background-attachment: fixed;
+			background-repeat: no-repeat;
+		}
+	</style>
 </head> 
 <body> 
 
 <div id="main" data-role="page">
 
-	<div data-role="header" data-id="nav" data-position="fixed">
+	<div class="fancy-header" data-role="header" data-id="nav" data-position="fixed">
 		<h1>Town Of Salem</h1>
 		<div data-role="navbar">
 			<ul>
@@ -48,158 +98,196 @@
 	</div><!-- /header -->
 
 	<div data-role="content">
-	<div align="center"><img src="img/logo.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="550px" width="750px"/></div>
+	<div align="center"><img src="img/splash_cover.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="550px" width="750px"/></div>
 
 	<h2>Town</h2><br />
 
 	<button class="roles-render-button" data-crole="#rb_bodyguard">Bodyguard</button>
-	<div class="role-slidebox" id="rb_bodyguard" style="display:none;">
-		Town Protective | Sacrifice yourself to protect one person from death at night, killing their attacker and yourself.
+	<div align="center" class="role-slidebox" id="rb_bodyguard" style="display:none;">
+		<div><img src="img/characters/bodyguard.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
+		Town Protective <h1>Alignment:</h1> <p>Town (Protective)</p>
+<h1>Abilities:</h1> <p>Protect one person from death each night.</p>
+<h1>Attributes:</h1>
+<p>If your target is attacked, both you and your attacker will die instead.</p>
+<p>If you successfully protect someone, you can't be saved from death.</p>
+<p>Your counterattack ignores night immunity.</p>
+<h1> Goal: </h1> <p>Lynch every criminal and evildoer. </p>
 	</div> 
 
 	<button class="roles-render-button" data-crole="#rb_doctor">Doctor</button>
-	<div class="role-slidebox" id="rb_doctor" style="display:none;">
-		Town Protective|	Heal one person each night, preventing them from dying.
+	<div align="center" class="role-slidebox" id="rb_doctor" style="display:none;">
+	  Town Protective|	Heal one person each night, preventing them from dying.
 	</div> 
 
 	<button class="roles-render-button" data-crole="#rb_escort">Escort</button>
-	<div class="role-slidebox" id="rb_escort" style="display:none;">
+	<div align="center" class="role-slidebox" id="rb_escort" style="display:none;">
+		<div><img src="img/characters/escort.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
 		Town Support|	Distract someone each night. Certain roles are immune to roleblocking such as other Escorts/Consorts, Transporters, Witches, Serial killers, and Werewolves on full moon nights.
 	</div>
 
 	<button class="roles-render-button" data-crole="#rb_investigator">Investigator</button>
-	<div class="role-slidebox" id="rb_investigator" style="display:none;">
+	<div align="center" class="role-slidebox" id="rb_investigator" style="display:none;">
+		<div><img src="img/characters/investigator.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
 		Town Investigative	Investigate someone for a clue to their role.
 	</div>
 
 	<button class="roles-render-button" data-crole="#rb_jailor">Jailor</button>
-	<div class="role-slidebox" id="rb_jailor" style="display:none;">
+	<div align="center" class="role-slidebox" id="rb_jailor" style="display:none;">
+		<div><img src="img/characters/jailor.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
 		Town Killing|	Choose someone each day to jail for the night. You may talk to them and choose to execute them.
 	</div>
 
 	<button class="roles-render-button" data-crole="#rb_lookout">Lookout</button>	
-	<div class="role-slidebox" id="rb_lookout" style="display:none;">
+	<div align="center" class="role-slidebox" id="rb_lookout" style="display:none;">
+		<div><img src="img/characters/lookout.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
 		Town Investigative|	Watch someone at night to see who visits them.
 	</div>
 
 	<button class="roles-render-button" data-crole="#rb_mayor">Mayor</button>
-	<div class="role-slidebox" id="rb_mayor" style="display:none;">
+	<div align="center" class="role-slidebox" id="rb_mayor" style="display:none;">
+		<div><img src="img/characters/mayor.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
 		Town Support|	Gain 3 votes when revealing as Mayor.
 	</div>
 
 	<button class="roles-render-button" data-crole="#rb_medium">Medium</button>
-	<div class="role-slidebox" id="rb_medium" style="display:none;">
+	<div align="center" class="role-slidebox" id="rb_medium" style="display:none;">
+		<div><img src="img/characters/medium.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
 		Town Support|	Speak with the dead at night. Seance a live player once. You may only seance when you are dead.
 	</div>
 
 	<button class="roles-render-button" data-crole="#rb_retributionist">Retributionist</button>
-	<div class="role-slidebox" id="rb_retributionist" style="display:none;">
+	<div align="center" class="role-slidebox" id="rb_retributionist" style="display:none;">
+		<div><img src="img/characters/retributionist.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
 		Town Support|	Resurrect a Town member from the dead.
 	</div>
 
 	<button class="roles-render-button" data-crole="#rb_sheriff">Sheriff</button>
-	<div class="role-slidebox" id="rb_sheriff" style="display:none;">
+	<div align="center" class="role-slidebox" id="rb_sheriff" style="display:none;">
+		<div><img src="img/characters/sheriff.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
 		Town Investigative|	Check one person each night for suspicious activity.
 	</div>
 
 	<button class="roles-render-button" data-crole="#rb_spy">Spy</button>
-	<div class="role-slidebox" id="rb_spy" style="display:none;">
+	<div align="center" class="role-slidebox" id="rb_spy" style="display:none;">
+		<div><img src="img/characters/spy.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
 		Town Investigative|	Able to read mafia chat and view who they visit. You may also listen to everyone's whispers.
 	</div>
 
 	<button class="roles-render-button" data-crole="#rb_transporter">Transporter</button>
-	<div class="role-slidebox" id="rb_transporter" style="display:none;">
+	<div align="center" class="role-slidebox" id="rb_transporter" style="display:none;">
+		<div><img src="img/characters/transporter.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
 		Town Investigative|	Able to read mafia chat and view who they visit. You may also listen to everyone's whispers.
 	</div>
 
 	<button class="roles-render-button" data-crole="#rb_vampire_hunter">Vampire Hunter</button>
-	<div class="role-slidebox" id="rb_vampire_hunter" style="display:none;">
+	<div align="center" class="role-slidebox" id="rb_vampire_hunter" style="display:none;">
+		<div><img src="img/characters/vampire hunter.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
 		Town Killing|	Check for Vampires each night.
 	</div>
 
 	<button class="roles-render-button" data-crole="#rb_veteran">Veteran</button>
-	<div class="role-slidebox" id="rb_veteran" style="display:none;">
+	<div align="center" class="role-slidebox" id="rb_veteran" style="display:none;">
+		<div><img src="img/characters/veteran.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
 		Town Killing|	Decide whether or not to be alert during the night, killing all your visitors.
 	</div>
 
 	<button class="roles-render-button" data-crole="#rb_vigilante">Vigilante</button>
-	<div class="role-slidebox" id="rb_vigilante" style="display:none;">
+	<div align="center" class="role-slidebox" id="rb_vigilante" style="display:none;">
+		<div><img src="img/characters/vigilante.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
 		Town Killing|	Choose to take justice in your own hands and shoot someone. If you shoot a town, you will commit suicide.
 	</div>
 
 <h2>Mafia</h2><br />
 	<button class= "roles-render-button" data-crole="#rb_blackmailer">Blackmailer</button>
-	<div class="role-slidebox" id="rb_blackmailer" style="display:none;"> 
+	<div align="center" class="role-slidebox" id="rb_blackmailer" style="display:none;"> 
+		<div><img src="img/characters/blackmailer.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
 		Mafia Support|	Choose one person each night to blackmail. They will not be able to speak in the morning.
 	</div>
 	<button class= "roles-render-button" data-crole="#rb_consigliere">Consigliere</button>
-	<div class="role-slidebox" id="rb_consigliere" style="display:none;"> 
+	<div align="center" class="role-slidebox" id="rb_consigliere" style="display:none;"> 
+		<div><img src="img/characters/consigliere.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
 		Mafia Support|	Check one person for their exact role each night.
 	</div>
 	<button class= "roles-render-button" data-crole="#rb_consort">Consort</button>
-	<div class="role-slidebox" id="rb_consort" style="display:none;"> 
+	<div align="center" class="role-slidebox" id="rb_consort" style="display:none;">
+		<div><img src="img/characters/consort.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
 		Mafia Support|	Distract someone each night, roleblocking them.
 	</div>
 	<button class= "roles-render-button" data-crole="#rb_disguiser">Disguiser</button>
-	<div class="role-slidebox" id="rb_disguiser" style="display:none;"> 
+	<div align="center" class="role-slidebox" id="rb_disguiser" style="display:none;"> 
+		<div><img src="img/characters/disguiser.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
 		Mafia Deception|	Choose a target to disguise yourself as. You appear as dead and take your targets place.
 	</div>
 	<button class= "roles-render-button" data-crole="#rb_forger">Forger</button>
-	<div class="role-slidebox" id="rb_forger" style="display:none;"> 
+	<div align="center" class="role-slidebox" id="rb_forger" style="display:none;"> 
+		<div><img src="img/characters/forger.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
 		Mafia Deception|	Choose a person and rewrite their last will at night.
 	</div>
 	<button class= "roles-render-button" data-crole="#rb_framer">Framer</button>
-	<div class="role-slidebox" id="rb_framer" style="display:none;"> 
+	<div align="center" class="role-slidebox" id="rb_framer" style="display:none;"> 
+		<div><img src="img/characters/framer.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
 		Mafia Deception|	Choose one person to frame each night. They show up as a member of the mafia to investigative roles.
 	</div>
 	<button class= "roles-render-button" data-crole="#rb_godfather">Godfather</button>
-	<div class="role-slidebox" id="rb_godfather" style="display:none;"> 
+	<div align="center" class="role-slidebox" id="rb_godfather" style="display:none;"> 
+		<div><img src="img/characters/godfather.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
 		Mafia Killing|	Choose who to kill at night.
 	</div>
 	<button class= "roles-render-button" data-crole="#rb_janitor">Janitor</button>
-	<div class="role-slidebox" id="rb_janitor" style="display:none;"> 
+	<div align="center" class="role-slidebox" id="rb_janitor" style="display:none;"> 
+		<div><img src="img/characters/janitor.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
 		Mafia Deception|	Choose a person to clean each night. Their role and will shows up as blank.
 	</div>
 	<button class= "roles-render-button" data-crole="#rb_mafioso">Mafioso</button>
-	<div class="role-slidebox" id="rb_mafioso" style="display:none;"> 
+	<div align="center" class="role-slidebox" id="rb_mafioso" style="display:none;"> 
+		<div><img src="img/characters/mafioso.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
 		Mafia Killing|	Kill whoever the Godfather wants you to kill. If the Godfather doesn't order you or is dead, you choose.
 	</div>
 	
 <h2>Neutral</h2><br />
 	<button class="roles-render-button" data-crole="#rb_amnesiac">Amnesiac</button>
-	<div class="role-slidebox" id="rb_amnesiac" style="display:none;">
+	<div align="center" class="role-slidebox" id="rb_amnesiac" style="display:none;">
+		<div><img src="img/characters/amnesiac.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
 		Mafia Support|	Choose one person each night to blackmail. They will not be able to speak in the morning.
 	</div>
 	<button class="roles-render-button" data-crole="#rb_arsonist">Arsonist</button>
-	<div class="role-slidebox" id="rb_arsonist" style="display:none;">
+	<div align="center" class="role-slidebox" id="rb_arsonist" style="display:none;">
+		<div><img src="img/characters/arsonist.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
 		Neutral Killing|	Douse someone in gasoline or ignite all doused targets.
 	</div>
 	<button class="roles-render-button" data-crole="#rb_executioner">Executioner</button>
-	<div class="role-slidebox" id="rb_executioner" style="display:none;">
-		Executioner|	Neutral Evil|	Get your target lynched.	
+	<div align="center" class="role-slidebox" id="rb_executioner" style="display:none;">
+		<div><img src="img/characters/executioner.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
+		Neutral Evil|	Get your target lynched.	
 	</div>
 	<button class="roles-render-button" data-crole="#rb_jester">Jester</button>
-	<div class="role-slidebox" id="rb_jester" style="display:none;">
-		Jester|	Neutral Evil|	Trick the Town into voting against you.
+	<div align="center" class="role-slidebox" id="rb_jester" style="display:none;">
+		<div><img src="img/characters/jester.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
+		Neutral Evil|	Trick the Town into voting against you.
 	</div>
 	<button class="roles-render-button" data-crole="#rb_sk">Serial Killer</button>
-	<div class="role-slidebox" id="rb_sk" style="display:none;">
+	<div align="center" class="role-slidebox" id="rb_sk" style="display:none;">
+		<div><img src="img/characters/serialkiller.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
 		Neutral| Killing	Kill someone each night.
 	</div>
 	<button class="roles-render-button" data-crole="#rb_survivor">Survivor</button>
-	<div class="role-slidebox" id="rb_survivor" style="display:none;">
+	<div align="center" class="role-slidebox" id="rb_survivor" style="display:none;">
+		<div><img src="img/characters/survivor.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
 		Neutral Benign|	Put on a bulletproof vest at night, protecting yourself from attacks. Try to survive to the end of the game.
 	</div>
 	<button class="roles-render-button" data-crole="#rb_vampire">Vampire</button>
-	<div class="role-slidebox" id="rb_vampire" style="display:none;">
+	<div align="center" class="role-slidebox" id="rb_vampire" style="display:none;">
+		<div><img src="img/characters/vampire.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
 		Neutral Chaos|	Convert others to Vampires at night.
 	</div>
 	<button class="roles-render-button" data-crole="#rb_werewolf">Werewolf</button>
-	<div class="role-slidebox" id="rb_werewolf" style="display:none;">
+	<div align="center" class="role-slidebox" id="rb_werewolf" style="display:none;">
+		<div><img src="img/characters/werewolf.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
 		Neutral Killing|	Go on a rampage every Full Moon, killing your target and all of their visitors.
 	</div>
 	<button class="roles-render-button" data-crole="#rb_witch">Witch</button>
-	<div class="role-slidebox" id="rb_witch" style="display:none;">
+	<div align="center" class="role-slidebox" id="rb_witch" style="display:none;">
+		<div><img src="img/characters/witch.png" style="border-radius:5px;border:4px black solid;box-shadow:1px 2px 2px grey;" height="150px" width="150px"/></div>
 		Neutral Evil|	Control someone each night making them go to the house of whoever you choose and using their ability.
 	</div>
 	
@@ -209,7 +297,7 @@
 
 <div id="gamemode" data-role="page">
 
-	<div data-role="header" data-id="venue" data-position="fixed">
+	<div class="fancy-header" data-role="header" data-id="venue" data-position="fixed">
 		<h1>Town Of Salem</h1>
 		
 		<div data-role="navbar">
@@ -221,36 +309,48 @@
 		</div>
 	</div><!-- /header -->
 		<button class="roles-render-button" data-crole="#rb_classic">Classic</button>
-		<div class="role-slidebox" id="rb_classic" style="display:none;">
+		<div align="center" class="role-slidebox" id="rb_classic" style="display:none;">
+		Classic is the simplest form of the game; the roles are predetermined.
+		This mode is geared towards newer players so they can learn roles without them changing every other game.
 			
 		</div>
 		<button class="roles-render-button" data-crole="#rb_ranked_practice">Ranked Practice</button>
-		<div class="role-slidebox" id="rb_ranked_practice" style="display:none;">
-			
+		<div align="center" class="role-slidebox" id="rb_ranked_practice" style="display:none;">
+		This mode may be found under the 'Normal' tab and it features the same role list which Ranked mode has. 
+		10 games of this mode are required to play Ranked. Players may play this mode with friends in a party.
+		
 		</div>
 		<button class="roles-render-button" data-crole="#rb_ranked">Ranked</button>
-		<div class="role-slidebox" id="rb_ranked" style="display:none;">
+		<div align="center" class="role-slidebox" id="rb_ranked" style="display:none;">
+		Competitive? Experienced? Ranked mode may be found under the 'Normal' tab.
+		
 			
 		</div>
 		<button class="roles-render-button" data-crole="#rb_custom">Custom</button>
-		<div class="role-slidebox" id="rb_custom" style="display:none;">
-			
+		<div align="center" class="role-slidebox" id="rb_custom" style="display:none;">
+		Custom, unlike Classic, gives the Host more freedom to choose what they want to put into their game. 
+		It also opens up a variety of different roles to play, as Classic Mode/Classic is Limited.	
 		</div>
 		<button class="roles-render-button" data-crole="#rb_rapid">Rapid</button>
-		<div class="role-slidebox" id="rb_rapid" style="display:none;">
-			
+		<div align="center" class="role-slidebox" id="rb_rapid" style="display:none;">
+		Rapid  is a Game mode where everything is fast-paced. The timer for several aspects of the game is cut in half, 
+		leaving you with much less time. If you need a quick game or a fast-progressing game, then this is where you'll find it
 		</div>
 		<button class="roles-render-button" data-crole="#rb_all_any">All Any</button>
-		<div class="role-slidebox" id="rb_all_any" style="display:none;">
-			
+		<div align="center" class="role-slidebox" id="rb_all_any" style="display:none;">
+		All Any mode is completely random and consists of 15 Any spots, which can be any of the 33 roles in the game.
+		As with other modes, there can only be one of each Unique Role if one is selected. 
+		Games can have as many as 5 starting Mafia members and although very rare as few as 0 Mafia members.
 		</div>
 		<button class="roles-render-button" data-crole="#rb_rainbow">Rainbow</button>
-		<div class="role-slidebox" id="rb_rainbow" style="display:none;">
-			
+		<div align="center" class="role-slidebox" id="rb_rainbow" style="display:none;">
+		Rainbow Mode is a chaotic game mode where the role list looks like a rainbow. Arsonists, Serial Killers, and the Godfather are night immune,
+		as well as any potential Survivors and Veterans on alert.	
 		</div>
 		<button class="roles-render-button" data-crole="#rb_vigilantics">Vigilantics</button>
-		<div class="role-slidebox" id="rb_vigilantics" style="display:none;">
-			
+		<div align="center" class="role-slidebox" id="rb_vigilantics" style="display:none;">
+		The goal of Vigilantics is for one team, either Vigilantes or Witches, to kill the opposing team at night to win. Witches want to force Vigilantes to kill other Vigilantes, and Vigilantes try to shoot or lynch the Witches. 
+		If a Vigilante shoots another Vigilante, both will die, as the original shooter will commit suicide after murdering a Town Member.
 		</div>
 	<div data-role="content">
 
@@ -259,7 +359,7 @@
 
 <div id="guides" data-role="page">
 
-	<div data-role="header" data-id="venue" data-position="fixed">
+	<div class="fancy-header" data-role="header" data-id="venue" data-position="fixed">
 		<h1>Town Of Salem</h1>
 		
 		<div data-role="navbar">
