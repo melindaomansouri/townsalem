@@ -48,11 +48,14 @@
 		}
 
 		#topbar-header {
-		    color: #770000;
+			color: #800000;
 		    font-size: 30px;
-		    text-shadow: 1px 2px 2px #EAB800;
+		    text-shadow: 1px 2px 2px #000000;
+		    -webkit-transform: rotateZ(-30deg);
+		    -ms-transform: rotateZ(-30deg);
+		    transform: rotateZ(-4deg);
+		    font-family: Gill Sans-serif;
 		}
-
 		.fancy-header {
 			background: gold;
 			background: -webkit-linear-gradient(rgba(255, 188, 38, 0.86), rgba(171, 118, 0, 0.86));
@@ -304,7 +307,7 @@
 <div id="gamemode" data-role="page">
 
 	<div class="fancy-header" data-role="header" data-id="venue" data-position="fixed">
-		<h1>Town Of Salem</h1>
+		<h1 id="topbar-header">Town Of Salem</h1>
 		
 		<div data-role="navbar">
 			<ul>
