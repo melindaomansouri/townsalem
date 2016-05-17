@@ -17,10 +17,11 @@
 		$(".roles-render-button").on("click",function(){
 
 			var crole = $(this).attr("data-crole");
+			var croleIDplain = crole.replace("#","");
 
 
 			$(".role-slidebox").each(function() {
-				if($(this).attr("id") == crole) {
+				if($(this).attr("id") != croleIDplain) {
 					$(this).hide();
 				}
 			});
