@@ -19,25 +19,17 @@
 			var crole = $(this).attr("data-crole");
 			var croleIDplain = crole.replace("#","");
 
-
 			$(".role-slidebox").each(function() {
 				if($(this).attr("id") != croleIDplain) {
 					$(this).hide();
 				}
 			});
 
-			//var buttonName = $(this).html();
-
 			if($(crole).is(':visible')) {
 				$(crole).hide();
 			} else {
 				$(crole).show();
 			}
-
-			/*//alert(buttonName+": "+ $("#"+crole).html());
-			//$.mobile.changePage($(crole), {transition: 'pop', role: 'dialog'});  
-			$(crole).dialog();
-			//$(crole).popup('open');*/
 		});
 	});
 	</script>
